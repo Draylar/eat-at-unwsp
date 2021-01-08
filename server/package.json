@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend for eat@unwsp",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Draylar/eat-at-unwsp.git"
+  },
+  "keywords": [
+    "unwsp"
+  ],
+  "author": "Draylar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Draylar/eat-at-unwsp/issues"
+  },
+  "homepage": "https://github.com/Draylar/eat-at-unwsp#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongoose": "^5.11.9",
+    "node-fetch": "^2.6.1"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "ignore": [ "./public/"]
+  }
+}

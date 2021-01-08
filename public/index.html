@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eat@UNWSP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="top-wrap">
+        <div id="top">
+            <p id="title">eat@UNWSP</p>
+            <p id="description">a simple and intuitive café menu site for students at UNWSP.</p>
+        </div>
+    </div>
+
+    <!-- Main content grid -->
+    <div id="main">
+        <div id="menu">
+            <div id="menu-top-line"></div>
+
+            <div id="daypart">
+                <button class="daypart-select daypart-active" id="daypart-breakfast">breakfast</button>
+                <button class="daypart-select" id="daypart-lunch">lunch</button>
+                <button class="daypart-select" id="daypart-dinner">dinner</button>
+                <button class="daypart-select" id="daypart-all">all</button>
+            </div>
+
+            <hr>
+
+            <!-- Filter options -->
+            <div id="options">
+                <div class="options-general">
+                    <input type="date" id="filter-date">
+                    <label class="filter-checkbox-label"><input type="checkbox"class="filter-checkbox" value="dining_funds"/>dining funds</label>
+                    <label class="filter-checkbox-label"><input type="checkbox"class="filter-checkbox" value="special_only"/>only show special items</label>
+                    <p id="filter-search">type to search available items...</p>
+                </div>
+
+                <div id="options-filters">
+                    <p class="filter-label">filters</p>
+
+                    <div id="options-filters-grid">
+                        <label class="filter-checkbox-label"><input type="checkbox"class="filter-checkbox" value="vegetarian"/>vegetarian</label>
+                        <label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" value="vegan"/>vegan</label>
+                        <label class="filter-checkbox-label"><input type="checkbox"class="filter-checkbox" value="gluten_free"/>gluten-free</label>
+                        <label class="filter-checkbox-label"><input type="checkbox"class="filter-checkbox" value="well_being"/>well-being</label>
+                    </div>
+                </div>
+            </div>
+
+            <hr id="hr-after-options">
+
+            <div class="options-toggle-wrapper" style="width: 82%;">
+                <button id="options-toggle">hide options</button>
+            </div>
+
+            <p id="error-label"></p>
+
+            <div id="menu-primary">
+                
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Load JS after initial page loads -->
+    <script src="main.js"></script>
+</body>
+
+</html>

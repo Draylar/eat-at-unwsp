@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'Open Sans Light';
+    font-style: normal;
+    font-weight: 300;
+    src:url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTRa1RVmPjeKy21_GQJaLlJI.woff) format('woff');
+ }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    width: 60vw;
+    margin: 0 auto;
+    font-size: 20px;
+    background-color: #FEFEFF;
+}
+
+html { margin-left: calc(100vw - 100%); }
+
+@media only screen and (max-width: 1200px) {
+    body {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        width: 90%;
+    }
+}
+
+#top-wrap {
+    text-align: center;
+}
+
+#top {
+    display: inline-block;
+    text-align: left;
+}
+
+#title {
+    margin-top: 15%;
+    font-weight: bold;
+}
+
+#description {
+    font-style: italic;
+    font-weight: 100;
+}
+
+#main {
+    margin-top: 45px;
+}
+
+#menu-top-line {
+    width: 100%;
+    height: 5px;
+    background-color: #331E54;
+}
+
+#daypart {
+    padding-top: 35px;
+    padding-bottom: 25px;
+    width: 60%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.daypart-select {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    color: #331e5480;
+}
+
+.daypart-select:active, .daypart-select:focus {
+    outline: 0;
+}
+
+.daypart-active {
+    color: #331E54;
+}
+
+#options-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: #6AA0FF;
+    float: right;
+}
+
+#options-toggle:active, #options-toggle:focus {
+    outline: 0;
+}
+
+#menu {
+    box-shadow: 0px 3px 10px 0px rgba(61, 61, 61, 0.6);
+    background: #FFFFFF;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    padding-bottom: 45px;
+    overflow: visible;
+    min-height: 73vh;
+}
+
+/* Styling for specific daypart categories and menu items ----------------------------------------  */
+#menu-primary {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.station-title {
+    font-weight: 700;
+    color: #331E54;
+    margin-block-end: 0px;
+}
+
+.entry-title {
+    color: #444444;
+    font-weight: 400;
+}
+
+.entry-description {
+    color: #9A9A9A;
+    font-style: italic;
+    letter-spacing: -1px;
+    font-weight: 100;
+}
+
+.station-divider {
+    width: 80%;
+    float: left;
+    bottom: 0;
+}
+
+.station-element {
+    padding: 0px;
+    margin: 0px;
+}
+
+.station-image {
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0px 3px 10px 0px rgba(61, 61, 61, 0.349);
+}
+
+#error-label {
+    color: red;
+    margin: 0 auto;
+    padding-top: 25px;
+    width: 60%;
+}
+
+
+
+.filter-label {
+    color: #331E54;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+#options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 65%;
+    margin: 0 auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#options-filters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#filter-search {
+    text-decoration: underline;
+    margin-top: 0px;
+}
+
+#filter-date {
+    font-family: 'Open Sans Light', sans-serif;
+    border-color: #331E54;
+    border-style: hidden;
+}
+
+::-webkit-datetime-edit {
+    margin: 5px;
+    font-size: 25px;
+}
+
+::-webkit-calendar-picker-indicator {
+    margin-left: -45px;
+}
+
+label {
+    display: block;
+}
+
+.filter-checkbox {
+    margin-right: 15px;
+    width: 25px;
+    height: 25px;
+}
+
+.filter-checkbox-label {
+    vertical-align: middle;
+}
+
+hr {
+    border: 1px solid #E2E2E2;
+    width: 65%;
+}
+
+button {
+    cursor: pointer;
+}
