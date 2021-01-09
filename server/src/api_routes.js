@@ -1,11 +1,21 @@
 const router = require('express').Router();
 const menu = require('./menu');
+const rateLimit = require('express-rate-limit');
+
+// Rate limiting. By default, IPs can send a maximum of 100 requests within an hour.
+const limiter = rateLimit({
+    windowMs: 1000 * 60 * 60, // 1 hour window
+    max: 100, // maximum of 100 requests in an hour,
+    message: {
+        error: "You have hit the maximum number of requests within the last hour (100). Please wait and try again later."
+    }
+});
 
 /**
  * Returns the "primary" menu for the given date.
  * A primary menu contains all items marked as special.
  */
-router.get('/menu', (request, response) => {
+router.get('/menu', limiter, (request, response) => {
     const date = request.query.date;
     const primary = request.query.primary;
 

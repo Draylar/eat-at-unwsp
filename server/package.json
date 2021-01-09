@@ -21,11 +21,14 @@
   "homepage": "https://github.com/Draylar/eat-at-unwsp#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "express-rate-limit": "^5.2.3",
     "mongoose": "^5.11.9",
     "node-fetch": "^2.6.1"
   },
   "nodemonConfig": {
     "verbose": true,
-    "ignore": [ "./public/"]
+    "ignore": [
+      "./public/"
+    ]
   }
 }
