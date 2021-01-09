@@ -1,6 +1,7 @@
 # VSCode
 .history
 .vscode
+debug.log
 
 # Node
 server/node_modules
