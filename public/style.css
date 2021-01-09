@@ -162,6 +162,12 @@ html { margin-left: calc(100vw - 100%); }
     display: none;
 }
 
+#follow-bar {
+    position: absolute;
+    top: 3%;
+    right: 2%;
+}
+
 
 .filter-label {
     color: #331E54;
