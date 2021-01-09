@@ -154,6 +154,13 @@ html { margin-left: calc(100vw - 100%); }
     width: 60%;
 }
 
+#loading-label {
+    color: rgb(28, 3, 31);
+    margin: 0 auto;
+    padding-top: 25px;
+    width: 60%;
+    display: none;
+}
 
 
 .filter-label {

@@ -3,6 +3,7 @@ const filterDatePicker = document.getElementById("filter-date");
 const primaryMenuElement = document.getElementById("menu-primary");
 const menuElement = document.getElementById("menu");
 const errorLabelElement = document.getElementById("error-label");
+const loadingLabelElement = document.getElementById("loading-label");
 
 // Constants
 const defaultOptions = {
@@ -58,6 +59,11 @@ function displayMenu(date) {
                 cachedMenuData.set(date, data);
                 refreshDisplay();
             });
+
+        // Show loading prompt and hide any errors that may be visible
+        errorLabelElement.style.display = 'none';
+        loadingLabelElement.style.display = 'block';
+        primaryMenuElement.innerHTML = "";
     } else {
         refreshDisplay();
     }
@@ -65,7 +71,8 @@ function displayMenu(date) {
 
 function refreshDisplay() {
     primaryMenuElement.innerHTML = "";
-    errorLabelElement.innerHTML = "";
+    errorLabelElement.style.display = 'none';
+    loadingLabelElement.style.display = 'none';
 
     const selectedSpecialOnly = readOption("special_only");
     const categories = new Map(); // category => list of food options
@@ -101,6 +108,7 @@ function refreshDisplay() {
         console.log(`No menu items found for ${visibleDate}.`);
 
         errorLabelElement.innerHTML = `No menu items were found for ${visibleDate}. The cafe may be closed, or the menu has not been uploaded yet.`
+        errorLabelElement.style.display = 'block';
 
         return;
     }
