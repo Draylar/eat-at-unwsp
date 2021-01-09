@@ -54,7 +54,7 @@ function displayMenu(date) {
 
         getPrimaryMenuThroughAPI(date)
             .then(data => {
-                data['primary'] = readOption("special-only");
+                data['primary'] = readOption("special_only");
                 cachedMenuData.set(date, data);
                 refreshDisplay();
             });
@@ -67,18 +67,24 @@ function refreshDisplay() {
     primaryMenuElement.innerHTML = "";
     errorLabelElement.innerHTML = "";
 
+    const selectedSpecialOnly = readOption("special_only");
     const categories = new Map(); // category => list of food options
     var data;
 
     // Check if the cached data has the data being requested.
     // It should always have the required data at this point.
     if(cachedMenuData.has(visibleDate)) {
-        // If the menu has the appropriate data, and:
-        //    - the data only shows primary information
-        //    - we are requesting ALL information
-        // re-run displayMenu() with flag instead
+        // Filter buttons save themselves to the user's application storage on press.
+        // If the current data being shown to the user is only primary, and the user unclicks the "show special items" option,
+        //      "special_only" is set to false. We check for both of those occuring here.
+        // If both conditions pass, we clear the local storage, then attempt to display the menu again.
+        // The property saved to local storage is used when the API request is sent, so all information will be returned by the server.
+        // In the case that the client has ALL information for a given day, no future requests are sent.
+        // This is done to not send large requests when the user first visits the application (data is served on request).
+        // TODO: this could be made more clear by passing values around in method calls rather than relying on hidden storage properties.
         if(cachedMenuData.get(visibleDate).primary) {
             if(!readOption("special_only")) {
+                cachedMenuData.delete(visibleDate);
                 displayMenu(visibleDate);
                 return;
             }
@@ -111,6 +117,11 @@ function refreshDisplay() {
 
         // Check if the given item is available at the currently selected dayPart
         if(item.availability.some(element => element.split(":")[0] == selectedDaypart)) {
+
+            // Ensure the food's primary/special status matches the filter
+            if(selectedSpecialOnly && !item.special) {
+                return;
+            }
             
             // Get the category from the food's availability at the currently selected dayPart
             // TODO: we could combine this with the above check
