@@ -180,7 +180,10 @@ function addMenuCategoryElement(category, elements) {
                 const price = element.price.replace("d.f.", "").replace("retail", "").split("/");
                 if(price[0] == undefined || price[1] == undefined) {
                     console.log(price);
+                    price[0] = "N/A";
+                    price[1] = "N/A";
                 }
+
                 const df = price[0].trim();
                 const retail = price[1].trim();
                 finalPrice = `${diningFunds ? df : retail}`;
